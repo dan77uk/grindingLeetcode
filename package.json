@@ -1,0 +1,14 @@
+{
+  "name": "grinding-leetcode",
+  "version": "1.0.0",
+  "description": "A repository of data structure and algorithm problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.4.1"
+  }
+}
