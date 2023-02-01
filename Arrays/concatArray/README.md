@@ -8,14 +8,25 @@ Specifically, ans is the concatenation of two nums arrays.
 
 ![Image of solution stats](spreadresult.png)
 
-A simple one line response, returning a new array created using the spread operator, and concatenating nums with itself.
+A simple one line response, returning a new array created using the spread operator, and concatenating nums with itself:
 
-return [...nums, ...nums]
+```js
+return [...nums, ...nums];
+```
 
 ### Solution 2
 
 ![Image of solution stats](loopresult.png)
 
-By creating an empty array, and looping over nums, pushing nums[i] to the result[i], and nums[i] tp result[i+nums.length].
+By creating an empty array, and looping over nums, pushing nums[i] to the result[i], and nums[i] to result[i+nums.length]:
+
+```js
+const result = [];
+for (let i = 0; i < nums.length; i++) {
+  result[i] = nums[i];
+  result[i + nums.length] = nums[i];
+}
+return result;
+```
 
 Both solutions have a time and space complexity of O(n), however the loop solution performs far better in Leetcode's tests than the spread operator.
