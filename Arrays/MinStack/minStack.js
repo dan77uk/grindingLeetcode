@@ -1,22 +1,30 @@
 class MinStack {
   constructor() {
     this.stack = [];
+    this.minStack = [];
   }
 
-  pushValue(value) {
+  push(value, { minStack } = this) {
     this.stack.push(value);
+    const isMinStackEmpty = !minStack.length;
+    const hasNewMin = value <= this.top(minStack);
+    const canAddMin = isMinStackEmpty || hasNewMin;
+    if (canAddMin) minStack.push(value);
   }
 
-  popValue() {
-    this.stack.pop();
+  pop({ stack, minStack } = this) {
+    const top = stack.pop();
+
+    const canPopMin = top === this.getMin();
+    if (canPopMin) minStack.pop();
   }
 
-  topValue() {
-    return this.stack[this.stack.length - 1];
+  top(stack = this.stack) {
+    return stack.length ? stack[stack.length - 1] : null;
   }
 
-  getMin() {
-    return this.minValue;
+  getMin(minStack = this.minStack) {
+    return this.top(minStack);
   }
 }
 
